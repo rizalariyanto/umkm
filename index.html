@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desain UMKM Naik Kelas - Belajar ChatGPT untuk Branding Produk</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            // PENGAMAN 1: Mengaktifkan selector important agar Tailwind selalu menang melawan CSS bawaan tema WordPress
+            important: '#umkm-landingpage',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            900: '#064e3b',
+                        },
+                        secondary: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #064e3b 0%, #022c22 100%) !important;
+        }
+        .card-glow:hover {
+            box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.3);
+            transform: translateY(-4px);
+            transition: all 0.3s ease;
+        }
+
+        /* PENGAMAN 3: CSS Override Khusus WordPress untuk memaksa warna teks heading & paragraf */
+        #umkm-landingpage h1, 
+        #umkm-landingpage h2, 
+        #umkm-landingpage h3, 
+        #umkm-landingpage h4, 
+        #umkm-landingpage h5, 
+        #umkm-landingpage h6,
+        #umkm-landingpage p,
+        #umkm-landingpage span,
+        #umkm-landingpage a,
+        #umkm-landingpage li {
+            font-family: 'Inter', sans-serif !important;
+        }
+        
+        /* Memaksa warna teks agar tidak ditimpa warna gelap tema WordPress */
+        #umkm-landingpage .text-white { color: #ffffff !important; }
+        #umkm-landingpage .text-emerald-400 { color: #34d399 !important; }
+        #umkm-landingpage .text-emerald-100 { color: #d1fae5 !important; }
+        #umkm-landingpage .text-gray-350 { color: #e5e7eb !important; }
+        #umkm-landingpage .text-gray-300 { color: #d1d5db !important; }
+        #umkm-landingpage .text-gray-400 { color: #9ca3af !important; }
+        #umkm-landingpage .text-slate-900 { color: #0f172a !important; }
+        #umkm-landingpage .text-slate-800 { color: #1e293b !important; }
+        #umkm-landingpage .text-slate-950 { color: #020617 !important; }
+        #umkm-landingpage .text-rose-600 { color: #e11d48 !important; }
+        #umkm-landingpage .text-amber-400 { color: #fbbf24 !important; }
+        #umkm-landingpage .text-amber-800 { color: #92400e !important; }
+        
+        /* Reset margin tambahan yang sering dipaksakan oleh WordPress */
+        #umkm-landingpage p { margin-bottom: 0 !important; }
+        #umkm-landingpage h1, #umkm-landingpage h2, #umkm-landingpage h3 { margin-top: 0 !important; margin-bottom: 0 !important; }
+        #umkm-landingpage ul { padding-left: 0 !important; margin-bottom: 0 !important; list-style-type: none !important;}
+        #umkm-landingpage li { margin-bottom: 0 !important; list-style-type: none !important;}
+    </style>
+</head>
+<body class="bg-gray-50 text-slate-800 font-sans antialiased">
+
+    <!-- PENGAMAN 2: Div Wrapper Utama untuk mengunci semua element di dalam sistem CSS terisolasi -->
+    <div id="umkm-landingpage" class="bg-gray-50 text-slate-800 font-sans antialiased min-h-screen relative">
+
+        <!-- FLOATING MOBILE CTA BAR (Appears on scroll on mobile) -->
+        <div id="mobile-cta" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-3 z-50 flex items-center justify-between md:hidden shadow-2xl transition-transform duration-300 translate-y-full">
+            <div>
+                <p class="text-xs text-gray-500 line-through">Mulai dari Rp499.000</p>
+                <p class="text-sm font-bold text-emerald-600">Rp149.000 <span class="text-[10px] text-amber-500 bg-amber-50 px-1 rounded">PROMO</span></p>
+            </div>
+            <a href="#penawaran" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-2.5 px-4 rounded-lg shadow-lg active:scale-95 transition-all">
+                PILIH PAKET <i class="fa-solid fa-arrow-down ml-1"></i>
+            </a>
+        </div>
+
+        <!-- HERO SECTION -->
+        <header class="gradient-bg text-white relative overflow-hidden">
+            <!-- Background decorative elements -->
+            <div class="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl"></div>
+
+            <div class="container mx-auto px-4 max-w-6xl pt-8 pb-16 md:py-24 relative z-10">
+                <!-- Nav-like Badge -->
+                <div class="flex justify-center md:justify-start mb-6">
+                    <span class="bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs md:text-sm font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider">
+                        ⚡ Kelas Online Terlaris untuk UMKM & Pebisnis Digital
+                    </span>
+                </div>
+
+                <!-- Main Hero Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+                    <!-- Left Content -->
+                    <div class="md:col-span-7 text-center md:text-left">
+                        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-4 text-white">
+                            DESAIN UMKM <br><span class="text-emerald-400">NAIK KELAS</span>
+                        </h1>
+                        
+                        <p class="text-lg md:text-2xl text-emerald-100 font-medium mb-4 leading-relaxed">
+                            Belajar Memanfaatkan ChatGPT untuk Membuat Konsep Label Kemasan, Desain Kemasan, dan Materi Promosi yang Lebih Profesional!
+                        </p>
+                        
+                        <p class="text-gray-300 text-sm md:text-base mb-8 max-w-xl">
+                            Khusus untuk pelaku UMKM yang ingin meningkatkan tampilan produknya, atau pebisnis digital yang ingin menjual kembali produk berlisensi RR bermutu tinggi ini!
+                        </p>
+
+                        <!-- CTA Buttons -->
+                        <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4 mb-8">
+                            <a href="#penawaran" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold text-base px-8 py-4 rounded-xl shadow-lg shadow-amber-500/20 transform hover:-translate-y-0.5 active:scale-95 transition-all flex items-center justify-center gap-2">
+                                LIHAT HARGA & DAFTAR SEKARANG <i class="fa-solid fa-rocket"></i>
+                            </a>
+                            <a href="#materi" class="w-full sm:w-auto border border-white/20 hover:border-white/50 bg-white/5 hover:bg-white/10 text-white font-semibold text-base px-8 py-4 rounded-xl transition-all flex items-center justify-center gap-2">
+                                Lihat Materi Kursus <i class="fa-solid fa-list-ul"></i>
+                            </a>
+                        </div>
+
+                        <!-- Trust Stats -->
+                        <div class="grid grid-cols-3 gap-4 border-t border-white/10 pt-6 text-left">
+                            <div>
+                                <p class="text-2xl md:text-3xl font-bold text-emerald-400">100%</p>
+                                <p class="text-xs text-gray-400">Lisensi Resell Right Tersedia</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl md:text-3xl font-bold text-emerald-400">6</p>
+                                <p class="text-xs text-gray-400">Video Panduan Praktis</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl md:text-3xl font-bold text-emerald-400">6</p>
+                                <p class="text-xs text-gray-400">Bonus Premium</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Content (Trainer Highlight) -->
+                    <div class="md:col-span-5 flex justify-center">
+                        <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 w-full max-w-sm shadow-2xl relative">
+                            <!-- Urgent Notification Box -->
+                            <div class="absolute -top-4 -right-4 bg-amber-500 text-slate-950 font-bold text-xs px-3 py-1 rounded-full shadow-lg animate-bounce">
+                                Sisa 14 Slot Promo!
+                            </div>
+                            
+                            <!-- Trainer Avatar -->
+                            <div class="w-full h-64 bg-slate-800 rounded-xl mb-4 overflow-hidden relative flex items-center justify-center border border-white/20">
+                                <div class="absolute inset-0 bg-gradient-to-t from-emerald-950 to-slate-800 opacity-60"></div>
+                                <img src="https://lh3.googleusercontent.com/d/1P8igoOhShtYag0tJw0skLp0hyqr5tz4s" alt="Rizal Ariyanto" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x400/064e3b/ffffff?text=Rizal+Ariyanto'">
+                            </div>
+
+                            <div class="text-center">
+                                <h3 class="text-lg font-bold text-white">Rizal Ariyanto</h3>
+                                <p class="text-xs text-emerald-400 font-medium mb-3">Digital Product Creator & Trainer UMKM</p>
+                                <div class="w-12 h-0.5 bg-amber-500 mx-auto mb-3"></div>
+                                <p class="text-xs text-gray-300 italic">
+                                    "Membantu pelaku usaha memanfaatkan AI untuk branding dan desain produk secara lebih praktis."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Curvy bottom shape divider -->
+            <div class="absolute bottom-0 left-0 right-0 h-8 bg-gray-50" style="clip-path: ellipse(60% 100% at 50% 100%);"></div>
+        </header>
+
+        <!-- SECTION MASALAH (PROBLEMS) -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <div class="text-center mb-12">
+                    <span class="text-rose-600 bg-rose-50 font-semibold text-xs px-3 py-1 rounded-full uppercase tracking-wider">Mungkin Anda Merasakan Ini</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2">Apakah Anda Mengalami Masalah Ini?</h2>
+                    <div class="w-16 h-1 bg-rose-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Problem Items -->
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex items-start gap-4 hover:shadow-md transition-shadow">
+                        <span class="w-8 h-8 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center shrink-0 font-bold"><i class="fa-solid fa-xmark"></i></span>
+                        <div>
+                            <h4 class="font-bold text-slate-800 mb-1">Kemasan Seadanya</h4>
+                            <p class="text-sm text-gray-600">Produk sudah sangat bagus dan lezat, tetapi desain kemasan luar masih terlihat sangat seadanya.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex items-start gap-4 hover:shadow-md transition-shadow">
+                        <span class="w-8 h-8 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center shrink-0 font-bold"><i class="fa-solid fa-xmark"></i></span>
+                        <div>
+                            <h4 class="font-bold text-slate-800 mb-1">Bingung Konsep & Warna</h4>
+                            <p class="text-sm text-gray-600">Sering bingung menentukan kombinasi warna, jenis font, dan konsep visual produk yang sesuai.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex items-start gap-4 hover:shadow-md transition-shadow">
+                        <span class="w-8 h-8 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center shrink-0 font-bold"><i class="fa-solid fa-xmark"></i></span>
+                        <div>
+                            <h4 class="font-bold text-slate-800 mb-1">Buta Desain Grafis</h4>
+                            <p class="text-sm text-gray-600">Tidak tahu harus memulai dari mana saat ingin menyusun struktur label kemasan yang benar.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex items-start gap-4 hover:shadow-md transition-shadow">
+                        <span class="w-8 h-8 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center shrink-0 font-bold"><i class="fa-solid fa-xmark"></i></span>
+                        <div>
+                            <h4 class="font-bold text-slate-800 mb-1">Kesulitan Bikin Teks Promosi</h4>
+                            <p class="text-sm text-gray-600">Butuh waktu seharian hanya untuk memikirkan satu konten promosi harian yang menarik minat pembeli.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex items-start gap-4 hover:shadow-md transition-shadow">
+                        <span class="w-8 h-8 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center shrink-0 font-bold"><i class="fa-solid fa-xmark"></i></span>
+                        <div>
+                            <h4 class="font-bold text-slate-800 mb-1">Belum Paham AI</h4>
+                            <p class="text-sm text-gray-600">Tertarik mencoba kecerdasan buatan (AI/ChatGPT) tapi bingung cara menulis instruksi/prompt yang tepat.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex items-start gap-4 hover:shadow-md transition-shadow">
+                        <span class="w-8 h-8 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center shrink-0 font-bold"><i class="fa-solid fa-xmark"></i></span>
+                        <div>
+                            <h4 class="font-bold text-slate-800 mb-1">Ingin Jual Produk Digital Sendiri</h4>
+                            <p class="text-sm text-gray-600">Ingin punya produk digital kualitas tinggi yang siap jual langsung tanpa harus repot bikin video pembelajaran sendiri.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Empathic Statement -->
+                <div class="mt-12 bg-emerald-50 border border-emerald-100 rounded-2xl p-6 text-center max-w-2xl mx-auto">
+                    <p class="text-slate-800 font-medium mb-3">Jika Anda menjawab <strong class="text-rose-600">"YA"</strong> untuk salah satu hal di atas, Anda tidak sendirian.</p>
+                    <p class="text-gray-600 text-sm">
+                        Kini Anda tidak hanya mendapatkan solusi mendesain produk Anda secara kilat, tetapi juga berkesempatan memiliki **aset produk digital komersial siap jual kembali (PLR/RR)** untuk mendapatkan penghasilan tambahan!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION SOLUSI (SOLUTION) -->
+        <section class="py-16 bg-white border-t border-b border-gray-100">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <div class="text-center mb-12">
+                    <span class="text-emerald-600 bg-emerald-50 font-semibold text-xs px-3 py-1 rounded-full uppercase tracking-wider">Solusi Tercepat & Praktis</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2">Kini Anda Bisa Memiliki Asisten Branding Pribadi!</h2>
+                    <p class="text-gray-600 text-sm md:text-base mt-3 max-w-2xl mx-auto">
+                        Lewat program ini, Anda akan dipandu langkah demi langkah mengoptimalkan ChatGPT untuk membantu mewujudkan kemasan impian yang menjual.
+                    </p>
+                    <div class="w-16 h-1 bg-emerald-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Solusi Cards -->
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:border-emerald-300 transition-colors">
+                        <div class="w-12 h-12 bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl rounded-xl mb-4 font-bold">01</div>
+                        <h3 class="font-bold text-lg text-slate-900 mb-2">Konsep & Karakter Brand</h3>
+                        <p class="text-sm text-gray-600">Selesaikan kebingungan menentukan arah produk dengan membuat identitas brand yang solid dan konsisten.</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:border-emerald-300 transition-colors">
+                        <div class="w-12 h-12 bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl rounded-xl mb-4 font-bold">02</div>
+                        <h3 class="font-bold text-lg text-slate-900 mb-2">Konsep Label & Kemasan</h3>
+                        <p class="text-sm text-gray-600">Ciptakan detail informasi label wajib serta rancang tata letak visual kemasan yang seimbang dan indah.</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:border-emerald-300 transition-colors">
+                        <div class="w-12 h-12 bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl rounded-xl mb-4 font-bold">03</div>
+                        <h3 class="font-bold text-lg text-slate-900 mb-2">Penentuan Warna Menjual</h3>
+                        <p class="text-sm text-gray-600">Gunakan psikologi warna yang relevan dengan tipe produk kuliner, herbal, fashion, maupun kerajinan Anda.</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:border-emerald-300 transition-colors">
+                        <div class="w-12 h-12 bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl rounded-xl mb-4 font-bold">04</div>
+                        <h3 class="font-bold text-lg text-slate-900 mb-2">Banner & Media Promosi</h3>
+                        <p class="text-sm text-gray-600">Hasilkan teks promosi dan rancangan banner media sosial yang terarah dengan bantuan asisten AI.</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:border-emerald-300 transition-colors">
+                        <div class="w-12 h-12 bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl rounded-xl mb-4 font-bold">05</div>
+                        <h3 class="font-bold text-lg text-slate-900 mb-2">Menyusun Design Brief</h3>
+                        <p class="text-sm text-gray-600">Mudah memberikan perintah jelas ke desainer atau Canva jika sewaktu-waktu ingin mencetak massal.</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:border-emerald-300 transition-colors flex flex-col justify-center items-center text-center bg-gradient-to-br from-emerald-50 to-teal-50 border-dashed border-2 border-emerald-300">
+                        <h4 class="font-bold text-slate-900 text-lg mb-1">Materi Lisensi RR</h4>
+                        <p class="text-xs text-gray-600 mb-4 px-2">Klaim lisensi jual kembali, edit isi, beri nama brand baru & simpan 100% laba bersih!</p>
+                        <a href="#penawaran" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs py-2 px-4 rounded-lg shadow transition-all">
+                            Pelajari Paket Resell Right <i class="fa-solid fa-chevron-down ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION HASIL (BEFORE VS AFTER COMPARISON) -->
+        <section class="py-16 bg-slate-900 text-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-emerald-950/20 pointer-events-none"></div>
+            <div class="container mx-auto px-4 max-w-4xl relative z-10">
+                <div class="text-center mb-12">
+                    <span class="text-amber-400 bg-amber-400/10 font-semibold text-xs px-3 py-1 rounded-full uppercase tracking-wider">Transformasi Peserta</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2">Perubahan Nyata yang Akan Anda Rasakan</h2>
+                    <div class="w-16 h-1 bg-amber-400 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <!-- Comparison Cards Box -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+                    <!-- BEFORE -->
+                    <div class="bg-rose-950/30 border border-rose-500/20 rounded-2xl p-6 md:p-8 flex flex-col relative overflow-hidden">
+                        <div class="absolute top-4 right-4 text-rose-500 font-extrabold text-4xl opacity-15"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="w-10 h-10 rounded-full bg-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-lg"><i class="fa-solid fa-xmark"></i></span>
+                            <h3 class="text-xl font-bold text-rose-300">Sebelum Ikut Kelas</h3>
+                        </div>
+                        
+                        <ul class="space-y-4 flex-grow">
+                            <li class="flex items-start gap-3">
+                                <span class="text-rose-400 shrink-0 mt-0.5"><i class="fa-solid fa-circle-xmark"></i></span>
+                                <span class="text-gray-300 text-sm md:text-base">Bingung mulai menyusun desain kemasan dari mana.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-rose-400 shrink-0 mt-0.5"><i class="fa-solid fa-circle-xmark"></i></span>
+                                <span class="text-gray-300 text-sm md:text-base">Warna produk tabrakan dan tidak konsisten dengan brand.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-rose-400 shrink-0 mt-0.5"><i class="fa-solid fa-circle-xmark"></i></span>
+                                <span class="text-gray-300 text-sm md:text-base">Label produk terlihat polos dan kurang memicu nafsu beli.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-rose-400 shrink-0 mt-0.5"><i class="fa-solid fa-circle-xmark"></i></span>
+                                <span class="text-gray-300 text-sm md:text-base">Belum punya aset digital bermutu tinggi bernilai jutaan rupiah untuk dijual kembali.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- AFTER -->
+                    <div class="bg-emerald-950/30 border border-emerald-400/30 rounded-2xl p-6 md:p-8 flex flex-col relative overflow-hidden shadow-xl shadow-emerald-500/5">
+                        <div class="absolute top-4 right-4 text-emerald-400 font-extrabold text-4xl opacity-15"><i class="fa-solid fa-circle-check"></i></div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="w-10 h-10 rounded-full bg-emerald-500/25 text-emerald-400 flex items-center justify-center font-bold text-lg"><i class="fa-solid fa-check"></i></span>
+                            <h3 class="text-xl font-bold text-emerald-300">Setelah Ikut Kelas</h3>
+                        </div>
+                        
+                        <ul class="space-y-4 flex-grow">
+                            <li class="flex items-start gap-3">
+                                <span class="text-emerald-400 shrink-0 mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
+                                <span class="text-emerald-100 text-sm md:text-base font-medium">Memiliki identitas brand yang lebih berkarakter & jelas.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-emerald-400 shrink-0 mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
+                                <span class="text-emerald-100 text-sm md:text-base font-medium">Warna, konsep, & tipografi selaras membuat produk tampak mahal.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-emerald-400 shrink-0 mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
+                                <span class="text-emerald-100 text-sm md:text-base font-medium">Bisa mandiri merancang brief desain menggunakan ChatGPT.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-emerald-400 shrink-0 mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
+                                <span class="text-emerald-100 text-sm md:text-base font-medium">Bisa langsung jualan produk digital ini dengan lisensi RR premium secara halal dan sah!</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION MATERI (CURRICULUM) -->
+        <section id="materi" class="py-16 bg-white">
+            <div class="container mx-auto px-4 max-w-3xl">
+                <div class="text-center mb-12">
+                    <span class="text-emerald-600 bg-emerald-50 font-semibold text-xs px-3 py-1 rounded-full uppercase tracking-wider">Kurikulum Pelatihan</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2">Materi Pembelajaran Anda</h2>
+                    <p class="text-sm text-gray-600 mt-3">Silakan tonton panduan video di bawah ini dan akses semua sumber daya yang telah kami sediakan untuk Anda.</p>
+                    <div class="w-16 h-1 bg-emerald-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <!-- Interactive Accordion Modules -->
+                <div class="space-y-4">
+                    <!-- Modul 1 -->
+                    <div class="border border-gray-200 rounded-xl overflow-hidden transition-all bg-slate-50">
+                        <button onclick="toggleAccordion('module-1')" class="w-full flex items-center justify-between p-5 text-left font-bold text-slate-900 hover:bg-gray-100 transition-colors">
+                            <div class="flex items-center gap-3">
+                                <span class="bg-emerald-100 text-emerald-800 text-xs px-2.5 py-1 rounded font-extrabold uppercase shrink-0">Video 1</span>
+                                <span class="text-sm md:text-base text-slate-900">1. Cara kustomisasi prompt modular</span>
+                            </div>
+                            <div class="flex items-center gap-3 shrink-0">
+                                <span class="hidden sm:inline bg-gray-200/75 text-gray-700 text-xs px-2 py-0.5 rounded-full font-medium"><i class="fa-regular fa-clock mr-1"></i>05:04</span>
+                                <i id="icon-module-1" class="fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                            </div>
+                        </button>
+                        <div id="content-module-1" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-white border-t border-gray-100">
+                            <div class="p-5 text-sm text-gray-600 space-y-2.5">
+                                <p class="text-xs text-emerald-600 font-bold sm:hidden"><i class="fa-regular fa-clock mr-1"></i>Durasi: 05:04</p>
+                                <div class="flex items-start gap-2.5">
+                                    <span class="text-emerald-500 shrink-0 mt-0.5"><i class="fa-regular fa-circle-dot"></i></span>
+                                    <span>Langkah mudah memodifikasi prompt yang fleksibel (modular) agar sesuai dengan segala jenis produk jualan Anda.</span>
+                                </div>
+                                <div class="flex items-start gap-2.5">
+                                    <span class="text-emerald-500 shrink-0 mt-0.5"><i class="fa-regular fa-circle-dot"></i></span>
+                                    <span>Menyelaraskan target pasar, karakter produk, serta pesan utama brand langsung dalam hitungan detik.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modul 2 -->
+                    <div class="border border-gray-200 rounded-xl overflow-hidden transition-all bg-slate-50">
+                        <button onclick="toggleAccordion('module-2')" class="w-full flex items-center justify-between p-5 text-left font-bold text-slate-900 hover:bg-gray-100 transition-colors">
+                            <div class="flex items-center gap-3">
+                                <span class="bg-emerald-100 text-emerald-800 text-xs px-2.5 py-1 rounded font-extrabold uppercase shrink-0">Video 2</span>
+                                <span class="text-sm md:text-base text-slate-900">2. Cara menggenerate gambar di chat GPT</span>
+                            </div>
+                            <div class="flex items-center gap-3 shrink-0">
+                                <span class="hidden sm:inline bg-gray-200/75 text-gray-700 text-xs px-2 py-0.5 rounded-full font-medium"><i class="fa-regular fa-clock mr-1"></i>02:34</span>
+                                <i id="icon-module-2" class="fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                            </div>
+                        </button>
+                        <div id="content-module-2" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-white border-t border-gray-100">
+                            <div class="p-5 text-sm text-gray-600 space-y-2.5">
+                                <p class="text-xs text-emerald-600 font-bold sm:hidden"><i class="fa-regular fa-clock mr-1"></i>Durasi: 02:34</p>
+                                <div class="flex items-start gap-2.5">
+                                    <span class="text-emerald-500 shrink-0 mt-0.5"><i class="fa-regular fa-circle-dot"></i></span>
+                                    <span>Panduan menggunakan kecerdasan buatan ChatGPT untuk menciptakan gambar kemasan yang detail, profesional, dan futuristik.</span>
+                                </div>
+                                <div class="flex items-start gap-2.5">
+                                    <span class="text-emerald-500 shrink-0 mt-0.5"><i class="fa-regular fa-circle-dot"></i></span>
+                                    <span>Tips membuat deskripsi visual (prompting) yang tepat agar hasil render gambar AI sesuai ekspektasi.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modul 3 -->
+                    <div class="border border-gray-200 rounded-xl overflow-hidden transition-all bg-slate-50">
+                        <button onclick="toggleAccordion('module-3')" class="w-full flex items-center justify-between p-5 text-left font-bold text-slate-900 hover:bg-gray-100 transition-colors">
+                            <div class="flex items-center gap-3">
+                                <span class="bg-emerald-100 text-emerald-800 text-xs px-2.5 py-1 rounded font-extrabold uppercase shrink-0">Video 3</span>
+                                <span class="text-sm md:text-base text-slate-900">3. Cara Mengolah gambar dari chat gpt ke canva</span>
+                            </div>
+                            <div class="flex items-center gap-3 shrink-0">
+                                <span class="hidden sm:inline bg-gray-200/75 text-gray-700 text-xs px-2 py-0.5 rounded-full font-medium"><i class="fa-regular fa-clock mr-1"></i>06:20</span>
+                                <i id="icon-module-3" class="fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                            </div>
+                        </button>
+                        <div id="content-module-3" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-white border-t border-gray-100">
+                            <div class="p-5 text-sm text-gray-600 space-y-2.5">
+                                <p class="text-xs text-emerald-600 font-bold sm:hidden"><i class="fa-regular fa-clock mr-1"></i>Durasi: 06:20</p>
+                                <div class="flex items-start gap-2.5">
+                                    <span class="text-emerald-500 shrink-0 mt-0.5"><i class="fa-regular fa-circle-dot"></i></span>
+                                    <span>Cara mengekspor gambar dari ChatGPT, menghapus latar belakang (background removal), dan menyempurnakannya ke dalam lembar kerja Canva.</span>
+                                </div>
+                                <div class="flex items-start gap-2.5">
+                                    <span class="text-emerald-500 shrink-0 mt-0.5"><i class="fa-regular fa-circle-dot"></i></span>
+                                    <span>Menyelaraskan teks kemasan, tipografi, dan stiker pendukung secara presisi di Canva.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modul 4 -->
+                    <div class="border border-gray-200 rounded-xl overflow-hidden transition-all bg-slate-50">
+                        <button onclick="toggleAccordion('module-4')" class="w-full flex items-center justify-between p-5 text-left font-bold text-slate-900 hover:bg-gray-100 transition-colors">
+                            <div class="flex items-center gap-3">
+                                <span class="bg-emerald-100 text-emerald-800 text-xs px-2.5 py-1 rounded font-extrabold uppercase shrink-0">Video 4</span>
+                                <span class="text-sm md:text-base text-slate-900">4. Cara export gambar dari canva ke pdf</span>
+                            </div>
+                            <div class="flex items-center gap-3 shrink-0">
+                                <span class="hidden sm:inline bg-emerald-100 text-emerald-700 text-xs px-2 py-0.5 rounded-full font-bold">PRAKTIS</span>
+                                <i id="icon-module-4" class="fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                            </div>
+                        </button>
+                        <div id="content-module-4" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-white border-t border-gray-100">
+                            <div class="p-5 text-sm text-gray-600 space-y-2.5">
+                                <div class="flex items-start gap-2.5">
+                                    <span class="text-emerald-500 shrink-0 mt-0.5"><i class="fa-regular fa-circle-dot"></i></span>
+                                    <span>Cara menyimpan berkas desain dengan format PDF Print beresolusi tinggi agar tidak pecah atau blur saat dicetak secara massal.</span>
+                                </div>
+                                <div class="flex items-start gap-2.5">
+                                    <span class="text-emerald-500 shrink-0 mt-0.5"><i class="fa-regular fa-circle-dot"></i></span>
+                                    <span>Menyetel bleed cetakan dan margin pengaman agar desain kemasan Anda terpotong secara rapi oleh pihak percetakan.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modul 5 -->
+                    <div class="border border-gray-200 rounded-xl overflow-hidden transition-all bg-slate-50">
+                        <button onclick="toggleAccordion('module-5')" class="w-full flex items-center justify-between p-5 text-left font-bold text-slate-900 hover:bg-gray-100 transition-colors">
+                            <div class="flex items-center gap-3">
+                                <span class="bg-emerald-100 text-emerald-800 text-xs px-2.5 py-1 rounded font-extrabold uppercase shrink-0">Video 5</span>
+                                <span class="text-sm md:text-base text-slate-900">5. menambahkan izin, legalitas dan logo</span>
+                            </div>
+                            <div class="flex items-center gap-3 shrink-0">
+                                <span class="hidden sm:inline bg-emerald-100 text-emerald-700 text-xs px-2 py-0.5 rounded-full font-bold">PENTING</span>
+                                <i id="icon-module-5" class="fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                            </div>
+                        </button>
+                    <div id="content-module-5" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-white border-t border-gray-100">
+                        <div class="p-5 text-sm text-gray-600 space-y-2.5">
+                            <div class="flex items-start gap-2.5">
+                                <span class="text-emerald-500 shrink-0 mt-0.5"><i class="fa-regular fa-circle-dot"></i></span>
+                                <span>Cara meletakkan logo Halal, nomor P-IRT, izin BPOM, barcode produk, hingga informasi nilai gizi secara estetis pada label produk.</span>
+                            </div>
+                            <div class="flex items-start gap-2.5">
+                                <span class="text-emerald-500 shrink-0 mt-0.5"><i class="fa-regular fa-circle-dot"></i></span>
+                                <span>Menyusun penempatan teks legalitas agar memenuhi regulasi penjualan tanpa merusak keindahan karya desain.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modul 6 -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden transition-all bg-slate-50">
+                    <button onclick="toggleAccordion('module-6')" class="w-full flex items-center justify-between p-5 text-left font-bold text-slate-900 hover:bg-gray-100 transition-colors">
+                        <div class="flex items-center gap-3">
+                            <span class="bg-amber-100 text-amber-800 text-xs px-2.5 py-1 rounded font-extrabold uppercase shrink-0">Materi 6</span>
+                            <span class="text-sm md:text-base text-slate-900">6. Comingsoon</span>
+                        </div>
+                        <div class="flex items-center gap-3 shrink-0">
+                            <span class="hidden sm:inline bg-amber-100 text-amber-700 text-xs px-2 py-0.5 rounded-full font-bold">FREE UPDATE</span>
+                            <i id="icon-module-6" class="fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div id="content-module-6" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-white border-t border-gray-100">
+                        <div class="p-5 text-sm text-gray-600 space-y-2.5">
+                            <div class="flex items-start gap-2.5">
+                                <span class="text-emerald-500 shrink-0 mt-0.5"><i class="fa-regular fa-circle-dot"></i></span>
+                                <span>Materi update mendatang: eksplorasi software generator gambar AI terbaru untuk produk UMKM.</span>
+                            </div>
+                            <div class="flex items-start gap-2.5">
+                                <span class="text-emerald-500 shrink-0 mt-0.5"><i class="fa-regular fa-circle-dot"></i></span>
+                                <span>Akses update materi ini diberikan secara 100% gratis selamanya kepada seluruh peserta angkatan pertama.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION BONUS (EKSKLUSIF) -->
+    <section class="py-16 bg-slate-50 border-t border-b border-gray-200">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="text-center mb-12">
+                <span class="text-amber-600 bg-amber-50 font-semibold text-xs px-3 py-1 rounded-full uppercase tracking-wider">Aset Tambahan Gratis</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2">Dapatkan Juga 6 Bonus Eksklusif Ini!</h2>
+                <p class="text-sm text-gray-600 mt-2">Semua bonus ini dirancang agar mempercepat penerapan materi kelas dalam waktu singkat.</p>
+                <div class="w-16 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Bonus Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Bonus 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-amber-200 shadow-sm relative overflow-hidden card-glow">
+                    <span class="absolute top-0 right-0 bg-amber-500 text-slate-950 font-bold text-[10px] px-3 py-1 rounded-bl-xl uppercase">Bonus #1</span>
+                    <div class="w-10 h-10 bg-amber-100 text-amber-700 flex items-center justify-center rounded-lg mb-4 text-lg"><i class="fa-solid fa-code"></i></div>
+                    <h3 class="font-bold text-slate-900 mb-2">Prompt ChatGPT UMKM</h3>
+                    <p class="text-xs text-gray-600">Formula prompt instan untuk aneka jenis usaha makanan, fashion, hingga produk kecantikan.</p>
+                </div>
+
+                <!-- Bonus 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-amber-200 shadow-sm relative overflow-hidden card-glow">
+                    <span class="absolute top-0 right-0 bg-amber-500 text-slate-950 font-bold text-[10px] px-3 py-1 rounded-bl-xl uppercase">Bonus #2</span>
+                    <div class="w-10 h-10 bg-amber-100 text-amber-700 flex items-center justify-center rounded-lg mb-4 text-lg"><i class="fa-solid fa-table-cells-large"></i></div>
+                    <h3 class="font-bold text-slate-900 mb-2">Template Canva Siap Edit</h3>
+                    <p class="text-xs text-gray-600">Template kemasan dan banner media sosial siap edit sesuka hati tanpa perlu menggambar dari awal.</p>
+                </div>
+
+                <!-- Bonus 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-amber-200 shadow-sm relative overflow-hidden card-glow">
+                    <span class="absolute top-0 right-0 bg-amber-500 text-slate-950 font-bold text-[10px] px-3 py-1 rounded-bl-xl uppercase">Bonus #3</span>
+                    <div class="w-10 h-10 bg-amber-100 text-amber-700 flex items-center justify-center rounded-lg mb-4 text-lg"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3 class="font-bold text-slate-900 mb-2">AI Brand Identity Generator</h3>
+                    <p class="text-xs text-gray-600">Sistem otomatis pembuat identitas karakter visual yang sepadan dengan karakteristik produk Anda.</p>
+                </div>
+
+                <!-- Bonus 4 -->
+                <div class="bg-white p-6 rounded-2xl border border-amber-200 shadow-sm relative overflow-hidden card-glow">
+                    <span class="absolute top-0 right-0 bg-amber-500 text-slate-950 font-bold text-[10px] px-3 py-1 rounded-bl-xl uppercase">Bonus #4</span>
+                    <div class="w-10 h-10 bg-amber-100 text-amber-700 flex items-center justify-center rounded-lg mb-4 text-lg"><i class="fa-solid fa-camera"></i></div>
+                    <h3 class="font-bold text-slate-900 mb-2">Prompt Foto Produk AI</h3>
+                    <p class="text-xs text-gray-600">Hasilkan foto kemasan dan isi produk dengan kualitas studio pro bermodal kamera smartphone.</p>
+                </div>
+
+                <!-- Bonus 5 -->
+                <div class="bg-white p-6 rounded-2xl border border-amber-200 shadow-sm relative overflow-hidden card-glow">
+                    <span class="absolute top-0 right-0 bg-amber-500 text-slate-950 font-bold text-[10px] px-3 py-1 rounded-bl-xl uppercase">Bonus #5</span>
+                    <div class="w-10 h-10 bg-amber-100 text-amber-700 flex items-center justify-center rounded-lg mb-4 text-lg"><i class="fa-solid fa-pen-fancy"></i></div>
+                    <h3 class="font-bold text-slate-900 mb-2">Kamus Copywriting UMKM</h3>
+                    <p class="text-xs text-gray-600">Koleksi kosakata persuasif dan hipnotis penjualan untuk menggugah rasa penasaran pembeli.</p>
+                </div>
+
+                <!-- Bonus 6 -->
+                <div class="bg-white p-6 rounded-2xl border border-amber-200 shadow-sm relative overflow-hidden card-glow">
+                    <span class="absolute top-0 right-0 bg-amber-500 text-slate-950 font-bold text-[10px] px-3 py-1 rounded-bl-xl uppercase">Bonus #6</span>
+                    <div class="w-10 h-10 bg-amber-100 text-amber-700 flex items-center justify-center rounded-lg mb-4 text-lg"><i class="fa-solid fa-book-open"></i></div>
+                    <h3 class="font-bold text-slate-900 mb-2">Workbook Design Brief</h3>
+                    <p class="text-xs text-gray-600">Lembar kerja praktis untuk merangkum hasil kreasi ChatGPT agar siap serah terima ke tim cetak.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION TENTANG TRAINER -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <!-- Trainer Photo -->
+                <div class="md:col-span-5 flex justify-center">
+                    <div class="relative">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-3xl blur opacity-30"></div>
+                        <div class="relative w-72 h-80 bg-slate-100 rounded-2xl overflow-hidden border-2 border-emerald-600">
+                            <img src="https://lh3.googleusercontent.com/d/1P8igoOhShtYag0tJw0skLp0hyqr5tz4s" alt="Rizal Ariyanto" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x500/064e3b/ffffff?text=Rizal+Ariyanto'">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trainer Bio text -->
+                <div class="md:col-span-7 text-center md:text-left">
+                    <span class="text-emerald-600 bg-emerald-50 font-semibold text-xs px-3 py-1 rounded-full uppercase tracking-wider">Mengenal Mentor Anda</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 mt-2">Rizal Ariyanto</h2>
+                    <p class="text-sm font-semibold text-emerald-600 mb-4">Digital Product Creator & Trainer UMKM</p>
+                    
+                    <div class="space-y-4 text-sm md:text-base text-gray-600 leading-relaxed">
+                        <p>
+                            Halo pelaku UMKM luar biasa! Saya telah menghabiskan waktu bertahun-tahun membantu ribuan pengusaha kecil memahami dasar desain, branding, serta pemanfaatan teknologi modern untuk memajukan bisnis mereka secara mandiri.
+                        </p>
+                        <p>
+                            Dalam program <strong>Desain UMKM Naik Kelas</strong> ini, saya merangkum seluruh metode praktis tersebut ke dalam satu panduan mudah yang dapat langsung dipraktikkan tanpa harus pusing atau memiliki riwayat pendidikan seni/desain grafis.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION TESTIMONI (TESTIMONIALS) -->
+    <section class="py-16 bg-emerald-950 text-white relative">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="text-center mb-12">
+                <span class="text-emerald-300 bg-emerald-800/40 font-semibold text-xs px-3 py-1 rounded-full uppercase tracking-wider">Hasil Nyata</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold mt-2">Apa Kata Peserta Workshop Sebelumnya?</h2>
+                <div class="w-16 h-1 bg-amber-400 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Testi 1 -->
+                <div class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 flex flex-col justify-between">
+                    <div>
+                        <!-- Stars -->
+                        <div class="flex text-amber-400 gap-1 mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-sm text-gray-200 italic leading-relaxed mb-6">
+                            "Materinya sangat mudah dipahami bagi saya yang berumur 40 tahun lebih. Langsung bisa dipraktikkan untuk membuat label baru keripik singkong saya."
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-emerald-300">Bu Amalia</h4>
+                        <p class="text-xs text-gray-400">Pemilik Snack 'Renyah Berkah'</p>
+                    </div>
+                </div>
+
+                <!-- Testi 2 -->
+                <div class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 flex flex-col justify-between">
+                    <div>
+                        <!-- Stars -->
+                        <div class="flex text-amber-400 gap-1 mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-sm text-gray-200 italic leading-relaxed mb-6">
+                            "Baru tahu ternyata ChatGPT bisa dimanfaatkan sekeren ini untuk mencari identitas visual warna produk. Nilai jual brand saya langsung naik kelas!"
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-emerald-300">Ahmad Fauzi</h4>
+                        <p class="text-xs text-gray-400">Owner Coffee Beans Indonesia</p>
+                    </div>
+                </div>
+
+                <!-- Testi 3 -->
+                <div class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 flex flex-col justify-between">
+                    <div>
+                        <!-- Stars -->
+                        <div class="flex text-amber-400 gap-1 mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-sm text-gray-200 italic leading-relaxed mb-6">
+                            "Setelah mengikuti workshop, saya jadi lebih percaya diri membuat konsep kemasan produk. Hasilnya terlihat sangat premium!"
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-emerald-300">Siti Nurhaliza</h4>
+                        <p class="text-xs text-gray-400">Owner Sambal Pedas Ibu Siti</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION FAQ (FREQUENTLY ASKED QUESTIONS) -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <div class="text-center mb-12">
+                <span class="text-emerald-600 bg-emerald-50 font-semibold text-xs px-3 py-1 rounded-full uppercase tracking-wider">Pertanyaan Umum</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 mt-2">Pertanyaan yang Sering Diajukan</h2>
+                <div class="w-16 h-1 bg-emerald-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq('faq-1')" class="w-full flex items-center justify-between p-5 text-left font-bold text-slate-900 hover:bg-slate-50 transition-colors">
+                        <span>Apakah saya harus bisa desain grafis sebelumnya?</span>
+                        <i id="icon-faq-1" class="fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div id="content-faq-1" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-white">
+                        <p class="p-5 text-sm text-gray-600 border-t border-gray-100">
+                            <strong>Sama sekali tidak perlu!</strong> Program ini dirancang khusus untuk pemula yang buta desain. Anda akan diajarkan konsep berpikir serta memanfaatkan asisten kecerdasan buatan (ChatGPT) untuk melahirkan ide-ide visual secara otomatis.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq('faq-2')" class="w-full flex items-center justify-between p-5 text-left font-bold text-slate-900 hover:bg-slate-50 transition-colors">
+                        <span>Apakah saya harus paham teknologi AI / ChatGPT?</span>
+                        <i id="icon-faq-2" class="fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div id="content-faq-2" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-white">
+                        <p class="p-5 text-sm text-gray-600 border-t border-gray-100">
+                            <strong>Tidak perlu khawatir.</strong> Semua langkah pendaftaran, cara bertanya, hingga penyalinan prompt siap pakai akan dijelaskan mendalam mulai dari nol menggunakan bahasa yang sangat awam.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq('faq-3')" class="w-full flex items-center justify-between p-5 text-left font-bold text-slate-900 hover:bg-slate-50 transition-colors">
+                        <span>Apakah kelas ini cocok untuk semua jenis usaha UMKM?</span>
+                        <i id="icon-faq-3" class="fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div id="content-faq-3" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-white">
+                        <p class="p-5 text-sm text-gray-600 border-t border-gray-100">
+                            <strong>Ya, sangat cocok!</strong> Terutama untuk usaha sektor kuliner (makanan/minuman), jamu/herbal, kriya/kerajinan tangan, produk fesyen, kecantikan, serta aneka produk buatan lokal lainnya yang memiliki kemasan fisik.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq('faq-4')" class="w-full flex items-center justify-between p-5 text-left font-bold text-slate-900 hover:bg-slate-50 transition-colors">
+                        <span>Apakah ada berkas template yang bisa langsung dipakai?</span>
+                        <i id="icon-faq-4" class="fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div id="content-faq-4" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-white">
+                        <p class="p-5 text-sm text-gray-600 border-t border-gray-100">
+                            <strong>Tentu saja ada!</strong> Anda akan memperoleh akses eksklusif ke berbagai template instan Canva, 
+                            formula prompt siap pakai, serta lembar kerja (workbook) yang memudahkan pengerjaan secara mandiri.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq('faq-5')" class="w-full flex items-center justify-between p-5 text-left font-bold text-slate-900 hover:bg-slate-50 transition-colors">
+                        <span>Apa itu Lisensi RR (Resell Rights)?</span>
+                        <i id="icon-faq-5" class="fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div id="content-faq-5" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-white">
+                        <p class="p-5 text-sm text-gray-600 border-t border-gray-100">
+                            <strong>Lisensi RR</strong> memperbolehkan Anda untuk menjual kembali kursus ini di bawah nama brand Anda sendiri, mengedit isinya, dan menyimpan 100% dari hasil keuntungan langsung ke rekening Anda sendiri tanpa perlu membayar komisi apa pun kepada kami!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION PENAWARAN (OFFER) WITH PLR/RR PACKAGE -->
+    <section id="penawaran" class="py-16 gradient-bg text-white relative">
+        <div class="absolute inset-0 bg-emerald-950/20 pointer-events-none"></div>
+        <div class="container mx-auto px-4 max-w-5xl relative z-10 text-center">
+            
+            <div class="mb-12">
+                <span class="bg-amber-500 text-slate-950 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider mb-3 inline-block">LAUNCHING SPECIAL OFFER</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-2">Pilih Paket Belajar Terbaik Anda</h2>
+                <p class="text-emerald-200 text-sm md:text-base max-w-2xl mx-auto">Kami menyediakan opsi lisensi sesuai dengan kebutuhan usaha atau strategi bisnis digital Anda.</p>
+            </div>
+
+            <!-- Urgent Countdown Timer -->
+            <div class="mb-12">
+                <p class="text-xs text-amber-400 font-bold tracking-widest uppercase mb-3">Sisa Waktu Promo Launching:</p>
+                <div class="flex justify-center gap-4 text-slate-950">
+                    <div class="bg-white p-3 rounded-xl min-w-[70px]">
+                        <span id="hours" class="block text-2xl font-black text-emerald-900">12</span>
+                        <span class="text-[10px] uppercase tracking-wider font-semibold text-gray-500">Jam</span>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl min-w-[70px]">
+                        <span id="minutes" class="block text-2xl font-black text-emerald-900">45</span>
+                        <span class="text-[10px] uppercase tracking-wider font-semibold text-gray-500">Menit</span>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl min-w-[70px]">
+                        <span id="seconds" class="block text-2xl font-black text-emerald-900">10</span>
+                        <span class="text-[10px] uppercase tracking-wider font-semibold text-gray-500">Detik</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Double Card Pricing Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto">
+                
+                <!-- PAKET 1: PERSONAL LICENSE -->
+                <div class="bg-white text-slate-800 rounded-3xl p-6 md:p-8 shadow-xl flex flex-col justify-between border-2 border-transparent relative">
+                    <div>
+                        <div class="text-left mb-6">
+                            <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">UNTUK KEBUTUHAN PRIBADI</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-2">Lisensi Personal</h3>
+                            <p class="text-xs text-gray-500 mt-1">Cocok untuk pemilik UMKM yang ingin menaikkan tampilan brand produknya secara mandiri.</p>
+                        </div>
+
+                        <!-- Price Personal -->
+                        <div class="bg-slate-50 p-4 rounded-2xl mb-6 text-left border border-slate-100">
+                            <p class="text-xs text-gray-400 line-through">Harga Normal: Rp499.000</p>
+                            <p class="text-3xl font-black text-slate-900">Rp149.000</p>
+                            <span class="text-[10px] text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded font-bold">Hemat 70% Sekarang</span>
+                        </div>
+
+                        <!-- Benefits List -->
+                        <ul class="space-y-3.5 text-left text-sm text-gray-600 mb-8">
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-emerald-500 mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
+                                <span>Akses ke 6 Video Panduan Praktis</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-emerald-500 mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
+                                <span>Akses Semua 6 Bonus Eksklusif</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-emerald-500 mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
+                                <span>Akses Materi Selamanya (Life-time)</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-emerald-500 mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
+                                <span>Free Update Kurikulum Mendatang</span>
+                            </li>
+                            <li class="flex items-start gap-2.5 text-gray-400 line-through">
+                                <span class="text-gray-300 mt-0.5"><i class="fa-solid fa-circle-xmark"></i></span>
+                                <span>Hak Menjual Kembali Produk (RR)</span>
+                            </li>
+                            <li class="flex items-start gap-2.5 text-gray-400 line-through">
+                                <span class="text-gray-300 mt-0.5"><i class="fa-solid fa-circle-xmark"></i></span>
+                                <span>Bahan/Aset Promosi Penjualan</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="https://celebespixel.net/product/umkm-naik-kelas/" target="_blank" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-extrabold py-4 px-6 rounded-2xl shadow transition-all active:scale-95 text-center block">
+                        PILIH PAKET PERSONAL <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+
+                <!-- PAKET 2: RR LICENSE (RECOMMENDED/BEST VALUE) -->
+                <div class="bg-slate-900 text-white rounded-3xl p-6 md:p-8 shadow-2xl flex flex-col justify-between border-2 border-amber-400 relative overflow-hidden card-glow">
+                    <!-- Recommended Badge -->
+                    <div class="absolute top-5 right-5">
+                        <span class="bg-amber-500 text-slate-950 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">PELUANG BISNIS</span>
+                    </div>
+
+                    <div>
+                        <div class="text-left mb-6">
+                            <span class="bg-amber-500/20 text-amber-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">HAK JUAL KEMBALI</span>
+                            <h3 class="text-2xl font-black text-amber-400 mt-2">Lisensi Resell Right</h3>
+                            <p class="text-xs text-gray-300 mt-1">Miliki lisensi penuh untuk menjual kembali kursus ini dengan nama brand Anda sendiri & simpan 100% laba bersih!</p>
+                        </div>
+
+                        <!-- Price RR -->
+                        <div class="bg-white/10 p-4 rounded-2xl mb-6 text-left border border-white/10">
+                            <p class="text-xs text-gray-300 line-through">Harga Normal: Rp999.000</p>
+                            <p class="text-3xl font-black text-amber-400">Rp399.000</p>
+                            <span class="text-[10px] text-amber-300 bg-amber-500/20 px-2 py-0.5 rounded font-bold">Investasi Bisnis Terbaik</span>
+                        </div>
+
+                        <!-- Benefits List -->
+                        <ul class="space-y-3.5 text-left text-sm text-gray-200 mb-8">
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-amber-400 mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
+                                <span class="font-bold text-amber-300">Boleh Dijual Kembali (Lisensi RR)</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-amber-400 mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
+                                <span class="font-bold text-amber-300">Simpan 100% Keuntungan Penjualan</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-amber-400 mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
+                                <span>Dapatkan Bahan Promosi Siap Pakai</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-amber-400 mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
+                                <span>Akses Semua Video & 6 Bonus Utama</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-amber-400 mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
+                                <span>Boleh Ganti Nama Produk & Rebranding</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-amber-400 mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
+                                <span>Akses Bonus untuk Pembeli Anda Nanti</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="https://celebespixel.net/product/umkm-naik-kelas-rr/" target="_blank" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-black py-4 px-6 rounded-2xl shadow-xl shadow-amber-500/20 transition-all active:scale-95 transform hover:-translate-y-0.5 text-center block">
+                        AMBIL LISENSI RR SEKARANG <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION PENUTUP (CLOSING) -->
+    <footer class="py-16 bg-slate-950 text-white relative">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <h2 class="text-2xl md:text-3xl font-extrabold text-emerald-400 uppercase tracking-wide mb-3">"Produk Boleh UMKM, Tampilannya Harus Profesional"</h2>
+            <p class="text-sm md:text-base text-gray-400 max-w-2xl mx-auto mb-8">
+                Jangan biarkan produk berkualitas tinggi Anda kehilangan pasar potensialnya hanya karena kemasan dan tampilan luar yang belum maksimal, atau lewatkan kesempatan emas menjual kembali aset digital pro ini.
+            </p>
+
+            <a href="#penawaran" class="inline-flex items-center gap-3 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-base px-8 py-4 rounded-xl shadow-lg transition-all active:scale-95 mb-12">
+                YA, SAYA MAU BELAJAR & BISNIS! <i class="fa-solid fa-circle-play"></i>
+            </a>
+
+            <!-- Small bottom credits info -->
+            <div class="border-t border-white/10 pt-8 text-center text-xs text-gray-500 space-y-2">
+                <p>&copy; 2026 Rizal Ariyanto - Desain UMKM Naik Kelas. All Rights Reserved.</p>
+                <p>Website ini dilindungi oleh sistem keamanan tinggi. Transaksi terjamin aman.</p>
+            </div>
+        </div>
+    </footer>
+
+    </div> <!-- Akhir wrapper #umkm-landingpage -->
+
+    <!-- JAVASCRIPT LOGIC FOR ACCORDIONS, MODAL & COUNTDOWN -->
+    <script>
+        // --- 1. COUNTDOWN TIMER ---
+        let totalSeconds = 45910; // ~ 12 hours 45 mins
+        const hoursElement = document.getElementById('hours');
+        const minutesElement = document.getElementById('minutes');
+        const secondsElement = document.getElementById('seconds');
+
+        function updateCountdown() {
+            if (totalSeconds <= 0) {
+                totalSeconds = 45910; // Auto-loop back to create persistent urgency
+            }
+            const hrs = Math.floor(totalSeconds / 3600);
+            const mins = Math.floor((totalSeconds % 3600) / 60);
+            const secs = totalSeconds % 60;
+
+            hoursElement.textContent = String(hrs).padStart(2, '0');
+            minutesElement.textContent = String(mins).padStart(2, '0');
+            secondsElement.textContent = String(secs).padStart(2, '0');
+            
+            totalSeconds--;
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // --- 2. ACCORDION (MODULES) LOGIC ---
+        function toggleAccordion(id) {
+            const content = document.getElementById(`content-${id}`);
+            const icon = document.getElementById(`icon-${id}`);
+            
+            // Close other moduls if any are open
+            const allModules = ['module-1', 'module-2', 'module-3', 'module-4', 'module-5', 'module-6'];
+            allModules.forEach(modId => {
+                if (modId !== id) {
+                    const otherContent = document.getElementById(`content-${modId}`);
+                    const otherIcon = document.getElementById(`icon-${modId}`);
+                    if (otherContent) otherContent.style.maxHeight = null;
+                    if (otherIcon) otherIcon.style.transform = "rotate(0deg)";
+                }
+            });
+
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.style.transform = "rotate(0deg)";
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = "rotate(180deg)";
+            }
+        }
+
+        // --- 3. FAQ ACCORDION LOGIC ---
+        function toggleFaq(id) {
+            const content = document.getElementById(`content-${id}`);
+            const icon = document.getElementById(`icon-${id}`);
+
+            const allFaqs = ['faq-1', 'faq-2', 'faq-3', 'faq-4', 'faq-5'];
+            allFaqs.forEach(faqId => {
+                if (faqId !== id) {
+                    const otherContent = document.getElementById(`content-${faqId}`);
+                    const otherIcon = document.getElementById(`icon-${faqId}`);
+                    if (otherContent) otherContent.style.maxHeight = null;
+                    if (otherIcon) otherIcon.style.transform = "rotate(0deg)";
+                }
+            });
+
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.style.transform = "rotate(0deg)";
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = "rotate(180deg)";
+            }
+        }
+
+        // --- 4. RESPONSIVE FLOATING MOBILE CTA BAR ---
+        window.addEventListener('scroll', function() {
+            const mobileCta = document.getElementById('mobile-cta');
+            if (window.scrollY > 300) {
+                mobileCta.classList.remove('translate-y-full');
+            } else {
+                mobileCta.classList.add('translate-y-full');
+            }
+        });
+    </script>
+</body>
+</html>
